@@ -73,8 +73,47 @@ class _ButtonsView extends StatelessWidget {
               style: ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(colors.primary),
                   iconColor: WidgetStatePropertyAll(Colors.white)),
-            )
+            ),
+            CustomButton()
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Material(
+        color: Colors.transparent, // Para que respete el gradiente
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [colors.tertiaryFixed, colors.primary],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: InkWell(
+            onTap: () {},
+            borderRadius: BorderRadius.circular(
+                20), // Para evitar efectos fuera del borde
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Text(
+                'Custom Button',
+                style: const TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
         ),
       ),
     );
