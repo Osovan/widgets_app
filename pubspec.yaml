@@ -7,6 +7,7 @@ environment:
   sdk: ^3.6.2
 
 dependencies:
+  animate_do: ^4.1.1
   flutter:
     sdk: flutter
   flutter_launcher_icons: ^0.14.3
@@ -26,5 +27,5 @@ flutter_launcher_icons:
 flutter:
   uses-material-design: true
 
-assets:
-  - assets/images/
+  assets:
+    - assets/images/
